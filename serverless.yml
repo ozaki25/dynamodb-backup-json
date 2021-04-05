@@ -11,7 +11,7 @@ provider:
   profile: aa
   lambdaHashingVersion: 20201221
   environment:
-    DYNAMODB_TABLE: ${env:DYNAMODB_TABLE}
+    DYNAMODB_TABLE: ${env:DYNAMO_TABLE}
 functions:
   main:
     handler: handler.main
