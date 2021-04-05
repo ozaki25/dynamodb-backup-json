@@ -9,6 +9,8 @@ provider:
   region: ap-northeast-1
   profile: aa
   lambdaHashingVersion: 20201221
+  environment:
+    DYNAMODB_TABLE: 'table-name'
 functions:
   main:
     handler: handler.main
