@@ -117,4 +117,4 @@ dist
 
 .webpack
 
-.results/*.json
+results/*.json
