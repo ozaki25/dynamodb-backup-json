@@ -54,7 +54,7 @@ yarn start
 ```
 % tree results
 results
-├── -2021-04-05T16:21:08.402Z.json
+├── table_name-2021-04-05T16:21:08.402Z.json
 ├── table_name-2021-04-05T16:16:47.024Z.json
 ├── table_name-2021-04-05T16:18:51.486Z.json
 ├── table_name-2021-04-05T16:27:46.992Z.json
