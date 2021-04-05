@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Serverless webpack example using ecma script",
   "scripts": {
-    "start": "sls invoke local -f main",
-    "format": "prettier -w ./*.json"
+    "start": "npm run invoke && npm run format",
+    "invoke": "sls invoke local -f main",
+    "format": "prettier -w ./results/*.json"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
