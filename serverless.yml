@@ -3,6 +3,7 @@ service:
 frameworkVersion: '2'
 plugins:
   - serverless-webpack
+  - serverless-dotenv-plugin
 provider:
   name: aws
   runtime: nodejs12.x
@@ -10,7 +11,7 @@ provider:
   profile: aa
   lambdaHashingVersion: 20201221
   environment:
-    DYNAMODB_TABLE: 'table-name'
+    DYNAMODB_TABLE: ${env:DYNAMODB_TABLE}
 functions:
   main:
     handler: handler.main
