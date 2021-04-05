@@ -33,7 +33,7 @@ function writeToJSON(filename, data) {
 export async function main() {
   await getAll();
   writeToJSON(
-    `../../${DYNAMODB_TABLE}-${new Date().toISOString()}.json`,
+    `../../results/${DYNAMODB_TABLE}-${new Date().toISOString()}.json`,
     items,
   );
   return { statusCode: 200 };
