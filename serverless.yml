@@ -8,6 +8,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   region: ap-northeast-1
+  profile: ${env:PROFILE}
   lambdaHashingVersion: 20201221
   environment:
     DYNAMODB_TABLE: ${env:DYNAMO_TABLE}
