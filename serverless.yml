@@ -13,5 +13,5 @@ provider:
   environment:
     DYNAMODB_TABLE: ${env:DYNAMO_TABLE}
 functions:
-  main:
-    handler: handler.main
+  export:
+    handler: handler.exportToJSON

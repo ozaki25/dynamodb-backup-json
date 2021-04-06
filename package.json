@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Serverless webpack example using ecma script",
   "scripts": {
-    "start": "npm run invoke && npm run format",
-    "invoke": "sls invoke local -f main",
+    "start": "npm run export && npm run format",
+    "export": "sls invoke local -f export",
     "format": "prettier -w ./results/*.json"
   },
   "devDependencies": {

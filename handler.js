@@ -30,7 +30,7 @@ function writeToJSON(filename, data) {
   writeFileSync(filename, JSON.stringify(data));
 }
 
-export async function main() {
+export async function exportToJSON() {
   await getAll();
   writeToJSON(
     `../../results/${DYNAMODB_TABLE}-${new Date().toISOString()}.json`,
