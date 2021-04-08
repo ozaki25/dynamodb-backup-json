@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Serverless webpack example using ecma script",
   "scripts": {
-    "start": "npm run export && npm run format",
-    "export": "sls invoke local -f export",
+    "start": "npm run invoke:export && npm run format",
+    "invoke:export": "sls invoke local -f export",
+    "invoke:import": "sls invoke local -f import",
     "format": "prettier -w ./results/*.json"
   },
   "devDependencies": {
