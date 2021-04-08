@@ -15,3 +15,5 @@ provider:
 functions:
   export:
     handler: handler.exportToJSON
+  import:
+    handler: handler.importFromJSON
