@@ -16,6 +16,20 @@ function scan(lastEvaluatedKey) {
   return dynamo.scan(params).promise();
 }
 
+function batchWrite(items) {
+  const params = {
+    RequestItems: {
+      [DYNAMODB_TABLE]: items.map(item => ({
+        PutRequest: {
+          Item: { ...item },
+        },
+      })),
+    },
+  };
+  console.log({ params });
+  return dynamo.batchWrite(params).promise();
+}
+
 async function getAll(lastEvaluatedKey) {
   const { Items, LastEvaluatedKey, Count } = await scan(lastEvaluatedKey);
   console.log({ LastEvaluatedKey, Count });
@@ -36,5 +50,20 @@ export async function exportToJSON() {
     `../../results/${DYNAMODB_TABLE}-${new Date().toISOString()}.json`,
     items,
   );
+  return { statusCode: 200 };
+}
+
+export async function importFromJSON() {
+  const { default: items } = await import('./results/test.json');
+
+  const batchSize = 25;
+  const batchItems = new Array(Math.ceil(items.length / batchSize))
+    .fill()
+    .map((_, i) => items.slice(i * batchSize, i * batchSize + batchSize));
+
+  console.log(items.length);
+  console.log(batchItems.length);
+  const results = await Promise.all(batchItems.map(items => batchWrite(items)));
+  console.dir({ results }, { depth: null });
   return { statusCode: 200 };
 }
