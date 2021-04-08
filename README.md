@@ -6,33 +6,14 @@
 
 ### 準備
 
-- `.env` に取得したいテーブル名を設定する
+- `.env` を修正する
+    - DYNAMO_TABLE に取得したいテーブル名を設定する
+    - PROFILE に必要に応じて対象のテーブルにアクセス可能な AWS のプロファイルを設定する
+        - `default` でよければそのままで
 
 ```
 DYNAMO_TABLE=table_name
-```
-
-- 必要に応じて対象のテーブルにアクセス可能な AWS のプロファイルを `serverless.yml` に設定する
-  - `default` でよければ設定は不要
-
-```yml
-service:
-  name: dynamodb-backup-json
-frameworkVersion: '2'
-plugins:
-  - serverless-webpack
-  - serverless-dotenv-plugin
-provider:
-  name: aws
-  runtime: nodejs12.x
-  region: ap-northeast-1
-  profile: your-profike # ここを必要に応じて設定
-  lambdaHashingVersion: 20201221
-  environment:
-    DYNAMODB_TABLE: ${env:DYNAMO_TABLE}
-functions:
-  main:
-    handler: handler.main
+PROFILE=my-profile
 ```
 
 ## 実行
