@@ -54,7 +54,7 @@ export async function exportToJSON() {
 }
 
 export async function importFromJSON() {
-  const { default: items } = await import('./results/test.json');
+  const { default: items } = await import('./results/data.json');
 
   const batchSize = 25;
   const batchItems = new Array(Math.ceil(items.length / batchSize))
